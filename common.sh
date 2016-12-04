@@ -12,6 +12,7 @@ config_git() {
 clone_git_repos() {
    dir=$1
    repos=$2
+   echo "will clone $repos to $dir"
    config_git $dir
    cd $dir
    for repo in ${repos[@]} 

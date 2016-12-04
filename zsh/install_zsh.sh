@@ -8,11 +8,11 @@ fi
 source $CHXIA/dev_tools/common.sh
 
 zsh_git="git@github.com:zsh-users/zsh.git"
-dir="$CHXIA/opensource/"
+dir="$CHXIA/sw/zsh/"
 clone_git_repos $dir $zsh_git
 cd $dir/zsh
 ./Util/preconfig
-./configure --prefix=$CHXIA/sw/zsh_install
+./configure --prefix=$dir/zsh_install
 make -j20
 make install
 cd -
