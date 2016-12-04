@@ -36,10 +36,10 @@ git@github.com:rdnetto/YCM-Generator.git
 )
 
 if [ -z $CHXIA ]; then
-   echo "CHXIA env not set"
+   echo "environment CHXIA is not set"
    exit 1
 else
-   echo "CHXIA set to $CHXIA"
+   echo "environment CHXIA is set to $CHXIA"
 fi
 
 source $CHXIA/dev_tools/common.sh
