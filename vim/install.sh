@@ -1,24 +1,3 @@
-config_git() {
-   dir=$1
-   mkdir -p $dir
-   cd $dir
-   git init
-   git config --local user.name chxia1024
-   git config --local user.email chxia1024@gmail.com
-   cd -
-}
-
-clone_plugins() {
-   dir=$1
-   plugins=$2
-   cd $dir
-   for plugin in ${plugins[@]} 
-   do
-      git clone $plugin
-   done 
-   cd -
-}
-
 config_vimrc() {
    plugins_dir=$1
    plugins=$2
@@ -41,7 +20,7 @@ filetype plugin indent on    \" required
    " >> $file
 
    # default config in vimrc.tpl
-   cat vimrc.tpl >> $file
+   cat $CHXIA/dev_tools/vim/vimrc.tpl >> $file
 }
 
 plugins=(
@@ -56,8 +35,15 @@ git@github.com:ctrlpvim/ctrlp.vim.git
 git@github.com:rdnetto/YCM-Generator.git
 )
 
-export CHXIA=/home/admin/chxia                                                                                                         
+if [ -z $CHXIA ]; then
+   echo "CHXIA env not set"
+   exit 1
+else
+   echo "CHXIA set to $CHXIA"
+fi
+
+source $CHXIA/dev_tools/common.sh
+
 plugins_dir="$CHXIA/sw/vim/vim_plugins/"
-config_git $plugins_dir
-clone_plugins $plugins_dir $plugins
+clone_git_repos $plugins_dir $plugins
 config_vimrc $plugins_dir $plugins $CHXIA/vimrc
