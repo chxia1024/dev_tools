@@ -46,4 +46,4 @@ git@github.com:rdnetto/YCM-Generator.git
 
 plugins_dir="$CHXIA/sw/vim/vim_plugins/"
 clone_git_repos "$plugins_dir" "${plugins[@]}"
-config_vimrc $plugins_dir $plugins $CHXIA/vimrc
+config_vimrc $plugins_dir $plugins $VIMRC

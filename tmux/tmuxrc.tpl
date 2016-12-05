@@ -97,6 +97,3 @@ set -g status-right "#[fg=yellow,bright]%Y.%m.%d #[fg=green]%H:%M #[default]"
 set -g @resurrect-processes 'ssh psql mysql "git log"'
 # default 15min
 set -g @continuum-save-interval '30'
-set -g default-command "ZDOTDIR=/home/admin/chxia/sw/oh-my-zsh/ /home/admin/chxia/sw/zsh_install/bin/zsh -d"
-run-shell /home/admin/chxia/sw/tmux/tmux-continuum/continuum.tmux
-run-shell /home/admin/chxia/sw/tmux/tmux-resurrect/resurrect.tmux

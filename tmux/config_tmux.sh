@@ -7,10 +7,11 @@ source $ROOTPATH/common.sh
 check_env CHXIA
 check_env OH_MY_ZSH
 check_env ZSH_INSTALL
+check_env TMUXRC
 
 config_tmuxrc() {
    plugins_dir=$1
-   tmuxrc=$CHXIA/tmuxrc
+   tmuxrc=$TMUXRC
    log_info "Configure tmuxrc to $tmuxrc"
    cat $ROOTPATH/tmux/tmuxrc.tpl > $tmuxrc
    echo "
