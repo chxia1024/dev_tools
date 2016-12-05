@@ -16,6 +16,8 @@ dir=$(dirname $PYTHON_INSTALL)
 clone_git_repos $dir "${python_repos[@]}"
 
 cd $dir/python
+# checkout to py3
+git checkout remotes/origin/py3k -b py3k
 ./configure --prefix=$PYTHON_INSTALL --enable-shared --enable-debug LDFLAGS="-Wl,-rpath,$PYTHON_INSTALL/lib"
 check_ret $? "configure python."
 make -j20 && make install
