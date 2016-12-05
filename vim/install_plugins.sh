@@ -1,16 +1,25 @@
+#!/bin/bash
+SCRIPT=$(readlink -f "$0")
+ROOTPATH=$(dirname $(dirname "$SCRIPT"))
+
+source $ROOTPATH/common.sh
+
+check_env CHXIA
+
 config_vimrc() {
    plugins_dir=$1
    plugins=$2
    file=$3
+   log_info "Configure vimrc with all plugins to $file"
    # plugins special configs
    echo "set nocompatible
-filetype off 
+filetype off
 set runtimepath+=$plugins_dir/Vundle.vim
 \" plugins
 call vundle#begin('$plugins_dir')
 \" let Vundle manage Vundle, required
    " > $file
-   for plugin in ${plugins[@]} 
+   for plugin in ${plugins[@]}
    do
       echo "Plugin '$plugin'" >> $file
    done
@@ -35,15 +44,6 @@ git@github.com:ctrlpvim/ctrlp.vim.git
 git@github.com:rdnetto/YCM-Generator.git
 )
 
-if [ -z $CHXIA ]; then
-   echo "environment CHXIA is not set"
-   exit 1
-else
-   echo "environment CHXIA is set to $CHXIA"
-fi
-
-source $CHXIA/dev_tools/common.sh
-
 plugins_dir="$CHXIA/sw/vim/vim_plugins/"
-clone_git_repos $plugins_dir $plugins
+clone_git_repos "$plugins_dir" "${plugins[@]}"
 config_vimrc $plugins_dir $plugins $CHXIA/vimrc

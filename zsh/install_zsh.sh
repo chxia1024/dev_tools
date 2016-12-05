@@ -1,18 +1,20 @@
-if [ -z $CHXIA ]; then
-   echo "environment CHXIA is not set"
-   exit 1
-else
-   echo "environment CHXIA is set to $CHXIA"
-fi
+#!/bin/bash
+SCRIPT=$(readlink -f "$0")
+ROOTPATH=$(dirname $(dirname "$SCRIPT"))
 
-source $CHXIA/dev_tools/common.sh
+source $ROOTPATH/common.sh
+
+check_env CHXIA
+check_env ZSH_INSTALL
 
 zsh_git="git@github.com:zsh-users/zsh.git"
 dir="$CHXIA/sw/zsh/"
 clone_git_repos $dir $zsh_git
 cd $dir/zsh
 ./Util/preconfig
-./configure --prefix=$dir/zsh_install
-make -j20
-make install
+check_ret $? "preconfig zsh"
+./configure --prefix=$ZSH_INSTALL --enable-debug
+check_ret $? "configure zsh"
+make -j20 && make install
+check_ret $? "make zsh"
 cd -
