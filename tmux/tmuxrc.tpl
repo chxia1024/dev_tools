@@ -4,8 +4,6 @@ set -g prefix C-a
 bind a send-prefix
 # for zsh
 set -g remain-on-exit off
-# load my resouce
-bind-key R source-file /home/admin/chxia/sw/tmux/tmuxrc.conf
 # Use a for renaming the window prompt.
 unbind-key ,
 unbind-key A
@@ -79,6 +77,10 @@ bind : command-prompt
 
 # vi-style controls for copy mode
 setw -g mode-keys vi
+
+# fast enter esape mode
+set -sg escape-time 0
+
 
 set -g status-justify left
 set -g status-interval 15 # 15 sec refresh

@@ -18,6 +18,7 @@ config_tmuxrc() {
 set -g default-command \"ZDOTDIR=$OH_MY_ZSH $ZSH_INSTALL/bin/zsh -d\"
 run-shell $plugins_dir/tmux-continuum/continuum.tmux
 run-shell $plugins_dir/tmux-resurrect/resurrect.tmux
+bind-key R source-file $tmuxrc
 " >>  $tmuxrc
 }
 
