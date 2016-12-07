@@ -27,7 +27,7 @@ config_git() {
    mkdir -p $dir
    cd $dir
    git init
-   git config --local user.name chxia1024
+   git config --local user.name chxia
    git config --local user.email chxia1024@gmail.com
    cd -
 }

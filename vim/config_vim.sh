@@ -5,6 +5,7 @@ ROOTPATH=$(dirname $(dirname "$SCRIPT"))
 source $ROOTPATH/common.sh
 
 check_env CHXIA
+check_env VIM_PLUGINS
 
 config_vimrc() {
    plugins_dir=$1
@@ -44,6 +45,6 @@ git@github.com:ctrlpvim/ctrlp.vim.git
 git@github.com:rdnetto/YCM-Generator.git
 )
 
-plugins_dir="$CHXIA/sw/vim/vim_plugins/"
+plugins_dir=$VIM_PLUGINS
 clone_git_repos "$plugins_dir" "${plugins[@]}"
 config_vimrc $plugins_dir $plugins $VIMRC
