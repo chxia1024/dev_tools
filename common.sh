@@ -7,6 +7,10 @@ log_info() {
    log "INFO" $@
 }
 
+log_warn() {
+   log "WARN" $@
+}
+
 log_fatal() {
    log "FATAL" $@
 }
@@ -51,6 +55,10 @@ clone_git_repos() {
 }
 
 check_ret() {
+   if [ -z "$1" ]; then
+      log_warn "Return code not sepcified"
+      return
+   fi
    if [ $1 -ne 0 ]; then
       log_fatal "Failed - $2"
       exit 2
