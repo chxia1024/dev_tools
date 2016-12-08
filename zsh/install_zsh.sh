@@ -13,7 +13,7 @@ clone_git_repos $dir $zsh_git
 cd $dir/zsh
 ./Util/preconfig
 check_ret $? "preconfig zsh"
-./configure --prefix=$ZSH_INSTALL --enable-debug
+./configure --prefix=$ZSH_INSTALL --enable-zsh-debug
 check_ret $? "configure zsh"
 make -j20 && make install
 check_ret $? "make zsh"
