@@ -81,6 +81,8 @@ setw -g mode-keys vi
 # fast enter esape mode
 set -sg escape-time 0
 
+# enlarge history buffer
+set-option -g history-limit 5000
 
 set -g status-justify left
 set -g status-interval 15 # 15 sec refresh
