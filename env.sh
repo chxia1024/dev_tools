@@ -8,6 +8,8 @@ export TMUX_INSTALL=$CHXIA/sw/tmux/tmux_install
 export PYTHON_INSTALL=$CHXIA/sw/python/python_install
 export LLVM_INSTALL=$CHXIA/sw/llvm/llvm_install
 
+export PATH=$TMUX_INSTALL/bin:$ZSH_INSTALL/bin:$PATH
+
 # configuration files
 export TMUXRC=$CHXIA/.tmuxrc
 export VIMRC=$CHXIA/.vimrc
