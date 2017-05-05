@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+
+START=95
+
+SERVICE_USE_PID=1
+SERVICE_WRITE_PID=1
+SERVICE_DAEMONIZE=1
+
+start() {
+    service_start /usr/bin/lightjbl -t 14 -p 8080 -i /etc/lightjbl.html
+}
+
+stop() {
+    service_stop /usr/bin/lightjbl
+}

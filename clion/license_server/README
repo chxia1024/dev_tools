@@ -1,0 +1,32 @@
+Lightweight JetBrains License Server
+by @privatelo
+
+Customizable listen address, port and other options.
+
+Very lightweight and efficient. No external dependencies.
+All required libraries are embedded:
+
+* libev (event library)
+* PolarSSL (only RSA and MD5)
+* Simple Dynamic Strings (for string processing)
+
+Written in ANSI C. Support to build on POSIX and MinGW.
+To build and install, simply try
+
+  ./configure
+  make
+  sudo make install
+
+For usage, type "-h" to show help.
+
+Disclaimer:
+This is only an experimental project for testing purpose only.
+Please do support genuine!
+
+License: GPLv3
+
+Credits:
+  http://blog.lanyus.com/archives/174.html
+  http://www.right.com.cn/forum/forum.php?mod=viewthread&tid=161324&page=672&extra=#pid1640158
+  https://github.com/beeven/JBLS
+  https://github.com/dexgeh/webserver-libev-httpparser
