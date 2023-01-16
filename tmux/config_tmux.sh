@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPT=$(readlink -f "$0")
+SCRIPT=$(realpath "$0")
 ROOTPATH=$(dirname $(dirname "$SCRIPT"))
 
 source $ROOTPATH/common.sh

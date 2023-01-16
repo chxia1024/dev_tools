@@ -1,4 +1,4 @@
-export CHXIA=/home/admin/chxia
+export CHXIA=~/chxia
 # binary and plugins' install path
 export VIM_INSTALL=$CHXIA/sw/vim/vim_install
 export VIM_PLUGINS=$CHXIA/sw/vim/vim_plugins
